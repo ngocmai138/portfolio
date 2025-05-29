@@ -1,72 +1,233 @@
 .right-menu-container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  align-items: center;
+  padding-top: 30px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 100px;
+  background: #fafafa;
+  box-shadow: -4px 0px 10px rgba(47, 122, 249, 0.1);
+}
+
+.contrast-button {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-bottom: 40px;
+  background: #f0f0f6;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: #ffb400;
+    i {
+      color: #ffffff;
+    }
+  }
+
+  i {
+    font-size: 18px;
+    color: #767676;
+  }
+}
+
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: center;
+}
+
+.menu-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  .menu-popup {
+    position: absolute;
+    top: -38px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2b2b2b;
+    padding: 6px 15px;
+    border-radius: 2px;
+    display: none;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #2b2b2b;
+    }
+
+    span {
+      color: #ffffff;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+  }
+
+  .menu-icon {
+    width: 40px;
+    height: 40px;
+    background: #f0f0f6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 18px;
+      color: #767676;
+    }
+  }
+
+  &.active {
+    .menu-popup {
+      display: block;
+    }
+
+    .menu-icon {
+      background: #ffb400;
+
+      i {
+        color: #ffffff;
+      }
+    }
+  }
+
+  &:hover {
+    .menu-popup {
+      display: block;
+    }
+
+    .menu-icon {
+      background: #ffb400;
+
+      i {
+        color: #ffffff;
+      }
+    }
+  }
 }
 
 .section {
-  padding: 20px;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-
   h3 {
     font-size: 20px;
-    color: #333;
-    margin: 0 0 16px;
     font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 40px;
+      height: 2px;
+      background: #0050c8;
+    }
   }
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
 }
 
 .experience-item {
   text-align: center;
-  margin-bottom: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 
-  &:last-child {
-    margin-bottom: 0;
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .years,
   .count {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 700;
-    color: #4a90e2;
+    color: #0050c8;
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
   }
 
   p {
     font-size: 14px;
-    color: #666;
+    color: #4d4d4d;
     margin: 0;
+    font-weight: 500;
   }
+}
+
+.certificates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .certificate-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
+  gap: 16px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
 
-  &:last-child {
-    margin-bottom: 0;
+  &:hover {
+    transform: translateX(4px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  i {
-    font-size: 24px;
-    color: #ffd700;
+  .certificate-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e6f0ff;
+    border-radius: 12px;
+
+    i {
+      font-size: 24px;
+      color: #0050c8;
+    }
   }
 
   .certificate-info {
     h4 {
       font-size: 16px;
-      color: #333;
+      font-weight: 600;
+      color: #1a1a1a;
       margin: 0 0 4px;
     }
 
     p {
       font-size: 14px;
-      color: #666;
+      color: #4d4d4d;
       margin: 0;
     }
   }
@@ -76,29 +237,41 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+}
 
-  .interest-item {
+.interest-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .interest-icon {
+    width: 48px;
+    height: 48px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 8px;
-    padding: 12px;
-    background: #f5f5f5;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-
-    &:hover {
-      background: #e0e0e0;
-    }
+    justify-content: center;
+    background: #e6f0ff;
+    border-radius: 12px;
 
     i {
       font-size: 24px;
-      color: #4a90e2;
+      color: #0050c8;
     }
+  }
 
-    span {
-      font-size: 14px;
-      color: #555;
-    }
+  span {
+    font-size: 14px;
+    color: #1a1a1a;
+    font-weight: 500;
   }
 }

@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-leave-info',
   imports: [],
   templateUrl: './leave-info.component.html',
-  styleUrl: './leave-info.component.css'
+  styleUrl: './leave-info.component.scss',
 })
-export class LeaveInfoComponent {
-
-}
+export class LeaveInfoComponent {}
