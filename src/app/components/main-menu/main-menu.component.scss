@@ -21,8 +21,6 @@
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 20px 20px 0 20px;
   gap: 30px;
   min-height: 467px;
 
@@ -37,7 +35,7 @@
 .text-content {
   flex: 1;
   max-width: 500px;
-  padding-top: 60px;
+  align-self: center;
 
   @media (max-width: 768px) {
     padding-top: 30px;
@@ -93,20 +91,22 @@
     width: 16px;
     height: 16px;
   }
+  @media (max-width: 768px) {
+    margin: 0 auto;
+  }
 }
 
 .profile-image {
   width: 40%;
   max-width: 325px;
   min-width: 250px;
-  height: auto;
-  margin-top: 8px;
+  align-self: flex-end;
 
   @media (max-width: 768px) {
     width: 80%;
     max-width: 280px;
     order: 1;
-    margin: 0 auto;
+    align-self: center;
   }
 
   img {
